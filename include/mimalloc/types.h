@@ -138,7 +138,7 @@ terms of the MIT license. A copy of the license can be found in the file
   #define MI_BCHUNK_BITS_SHIFT              (7)   // 128 bits
   #elif MI_ARENA_SLICE_SHIFT < 16   // <= 32KiB
   #define MI_BCHUNK_BITS_SHIFT              (8)   // 256 bits
-  #else 
+  #else
   #define MI_BCHUNK_BITS_SHIFT              (6 + MI_SIZE_SHIFT)       // 512 bits (or 256 on 32-bit)
   #endif
 #endif
@@ -154,7 +154,7 @@ terms of the MIT license. A copy of the license can be found in the file
 #define MI_ARENA_MAX_OBJ_SIZE             (MI_ARENA_MAX_OBJ_SLICES * MI_ARENA_SLICE_SIZE)
 
 #if MI_ARENA_MAX_OBJ_SIZE < MI_SIZE_SIZE*1024
-#error maximum object size may be too small to hold local thread data  
+#error maximum object size may be too small to hold local thread data
 #endif
 
 #define MI_SMALL_PAGE_SIZE                MI_ARENA_MIN_OBJ_SIZE                    // 64 KiB
@@ -183,7 +183,7 @@ terms of the MIT license. A copy of the license can be found in the file
 // mimalloc pages.
 // ------------------------------------------------------
 
-// A large memory arena where pages are allocated in. 
+// A large memory arena where pages are allocated in.
 typedef struct mi_arena_s mi_arena_t;     // defined below
 
 
@@ -480,7 +480,7 @@ struct mi_heap_s {
 
 
 // ------------------------------------------------------
-// Sub processes do not reclaim or visit pages from other sub processes. 
+// Sub processes do not reclaim or visit pages from other sub processes.
 // These are essentially the static variables of a process, and
 // usually there is only one subprocess. This can be used for example
 // by CPython to have seperate interpreters within one process.
@@ -596,9 +596,9 @@ typedef struct mi_arena_s {
 #define EOVERFLOW (75)
 #endif
 
-/* -----------------------------------------------------------
-  Debug constants
------------------------------------------------------------ */
+// ------------------------------------------------------
+// Debug
+// ------------------------------------------------------
 
 #if !defined(MI_DEBUG_UNINIT)
 #define MI_DEBUG_UNINIT     (0xD0)
